@@ -2,7 +2,10 @@
 Bank management
 
 How program works :) 
+
+
 example : 
+
 create Erfan1:122.144.33.125
 
 create Ali1:1.1.12.33
