@@ -38,13 +38,13 @@ class Customer
 
           std::string get_username() const; // gereftan username
           unsigned int get_account_number() const; // gereftan account number 
-          std::string get_production_date() const; // gereftan tarikh sakht
-          std::string get_expiration_date() const; // gereftan tarikht engheza
+          std::string get_production_date(); // gereftan tarikh sakht
+          std::string get_expiration_date(); // gereftan tarikht engheza
           unsigned long long int get_inventory() const; // gereftan meghdar pool mojod
           unsigned long long int get_debt() const; // gereftan meghdar bedehi
-          unsigned int get_production_year(); // gereftan sal sakht
-          unsigned int get_production_month(); // gereftan mah sakht
-          unsigned int get_production_day(); // gereftan rooz sakht
+          int get_production_year(); // gereftan sal sakht
+          int get_production_month(); // gereftan mah sakht
+          int get_production_day(); // gereftan rooz sakht
           std::vector<std::string> get_ip_list() const; // gereftan list ip haye sabt shode baraye in karbar
           Card_Status get_card_status() const; // gereftan vaziyat hesab
           

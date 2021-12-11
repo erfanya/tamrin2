@@ -10,13 +10,13 @@ class Time
      public:
 
           void set_system_date(); // set kardan time system ba format mm/dd/yyyy
-          std::string get_date() const; // gereftan time system ba format mm/dd/yyyy
-          std::string get_system_time() const; // // gereftan time konooni system
+          std::string get_date(); // gereftan time system ba format mm/dd/yyyy
+          std::string get_system_time(); // // gereftan time konooni system
           
      private:
+          int day; // rooz
           int year; // sal
           int month; // mah
-          int day; // rooz
 };
 
 #endif
