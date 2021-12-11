@@ -78,7 +78,7 @@ void Time::set_system_date()
 
      if (pos4 == 8)
      {
-          day = stoi(time.substr(pos3 + 1, (pos4+2) -pos3));    
+          day = time.substr(pos3 + 1, (pos4+2) -pos3);    
      }
      else if (pos4 == 10)
      {    
