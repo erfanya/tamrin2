@@ -74,25 +74,25 @@ void Time::set_system_date()
           temp_month = 12;
      }
      
-     int day = 0;
+     string day;
 
      if (pos4 == 8)
      {
           day = stoi(time.substr(pos3 + 1, (pos4+2) -pos3));    
      }
      else if (pos4 == 10)
-     {
-          day = stoi(time.substr(pos3, pos3 - pos2));
+     {    
+          day = time.substr(pos3+1, 2);
      }
-
+  
      int year = stoi(time.substr(19, 25));
 
+     this->day = stoi(day);
      this->year = year;
-     this->day = day;
-     this->month = temp_month;
+     this->month = temp_month;   
 }
 
-string Time::get_system_time() const
+string Time::get_system_time() 
 {
      string time;
      int size = 25;
@@ -105,7 +105,7 @@ string Time::get_system_time() const
      return time;
 }
 
-string Time::get_date() const
+string Time::get_date() 
 {
-     return to_string(month) + "/" + to_string(day) + "/" + to_string(year);
+     return (to_string(month)  + "/" + to_string(day)  + "/" + to_string(year));
 }

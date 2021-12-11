@@ -22,7 +22,12 @@ Customer::Customer(string username, string ip)
      add_ip(ip);
      set_production_date(temp);
      
-     string expiration_date = to_string(get_production_month()) + "/" + to_string(get_production_day()) + "/" + to_string(get_production_year() + 2);
+     string expiration_day = to_string(get_production_day());
+     string expiration_month = to_string(get_production_month());
+     string expiration_year = to_string(get_production_year() + 2);
+     
+     string expiration_date =  expiration_month + "/" + expiration_day + "/" + expiration_year;
+     
      set_expiration_date(expiration_date);
 }
 
@@ -153,11 +158,12 @@ void Customer::add_ip(string ip)
      string part3 = ip.substr(pos2 + 1, (pos3 - pos2) - 1);
      string part4 = ip.substr(pos3 + 1, (pos4 - pos3) - 1);
 
+     
      if ((stoi(part1) < 0 || stoi(part1) > 255) || (stoi(part2) < 0 || stoi(part2) > 255) || (stoi(part3) < 0 || stoi(part3) > 255) || (stoi(part4) < 0 || stoi(part4) > 255))
      {
           throw out_of_range("your ip is invalid");
      }
-
+     
      ip_validation(ip);
      this->ip_list.push_back(ip);
 }
@@ -222,12 +228,12 @@ string Customer::get_username() const
      return username;
 }
 
-string Customer::get_production_date() const
+string Customer::get_production_date()
 {
      return production_date;
 }
 
-string Customer::get_expiration_date() const
+string Customer::get_expiration_date()
 {
      return expiration_date;
 }
@@ -247,30 +253,32 @@ unsigned long long int Customer::get_debt() const
      return debt;
 }
 
-unsigned int Customer::get_production_year()
+int Customer::get_production_year()
 {
      string time = get_production_date();
 
-     int pr_year = stoi(time.substr(5));
-
+     int pos1 = time.find("/", 4);
+     
+     int pr_year = stoi(time.substr(pos1 + 1));
+     
      return pr_year;
 }
 
-unsigned int Customer::get_production_month()
+int Customer::get_production_month()
 {
      string time = get_production_date();
 
      int pr_month = stoi(time.substr(0,2));
-
+ 
      return pr_month;
 }
 
-unsigned int Customer::get_production_day()
+int Customer::get_production_day()
 {
      string time = get_production_date();
-
+    
      int pr_day = stoi(time.substr(3,6));
-
+    
      return pr_day;
 }
 
